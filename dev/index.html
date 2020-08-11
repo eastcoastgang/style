@@ -23,6 +23,7 @@
     <div style="z-index: 20000049108509173268563785623467823478623478278997819871982498714;" class="modal fade bd-example-modal-sm" id="eonloaderelement" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog modal-sm modal-dialog-centered" role="document"><div style="display: inline-block; border-radius: 400px; width: 150px" class="modal-content centered"><div class="modal-body"><center><div class="progress-circular"><div class="progress-circular-wrapper"><div class="progress-circular-inner"><div class="progress-circular-left"><div class="progress-circular-spinner"></div></div><div class="progress-circular-gap"></div><div class="progress-circular-right"><div class="progress-circular-spinner"></div></div></div></div></div></center></div></div></div></div>
     <div style="z-index: 20000049108509173268563785623467823478623478278997819871982498714;" class="modal fade bd-example-modal-sm" id="eondoneelement" tabindex="-1" role="dialog" aria-hidden="true"><div class="modal-dialog modal-sm modal-dialog-centered" role="document"><div style="display: inline-block; border-radius: 400px; width: 150px" class="modal-content centered"><div class="modal-body"><center><h1 id="doneleementicon" style="line-height: 0px; margin: 0px;" class="animated bounceIn"><i class="material-icons doneicon">done</i></h1></center></div></div></div></div>
 
+    <div class="hidden animated fadeIn faster" id="bottom_sheet_background"></div>
 
     <center>
         <br><br><br>
@@ -107,6 +108,39 @@
                     <button onclick="error('text')" class="btn-outlined-primary">error('text')</button>
                   </div>
                 </div>
+              </div>
+              <br><br>
+              <div class="demo">
+                <h4>Bottom Sheets</h4>
+                <br>
+                <button data-bs-toggle="mySheet" class="btn-text-primary">Open</button>
+
+                <div class="bottom_sheet hidden" id="mySheet">
+                  <div class="bottom_sheet_content">
+                    <h2>bam</h2>
+                  </div>
+                </div>
+
+              </div>
+              <br><br>
+              <div class="demo">
+                <h4>Text Fields <small>Adapted for dark mode</small></h4>
+                <br>
+                <div class="floating-label textfield-box">
+                  <label for="exampleFloatingBox1">Floating label</label>
+                  <input class="form-control" id="exampleFloatingBox1" placeholder="Optional placeholder" type="text">
+                </div>
+                <br><br>
+                <div class="floating-label textfield-box">
+                  <label for="exampleFloatingBox4">Textarea</label>
+                  <textarea class="form-control" id="exampleFloatingBox4" placeholder="Optional placeholder" rows="3"></textarea>
+                </div>
+                <br><br>
+                <div class="floating-label">
+                  <label for="exampleFloatingLabel1">Floating label</label>
+                  <input aria-describedby="exampleFloatingLabel1Help" class="form-control" id="exampleFloatingLabel1" placeholder="Optional placeholder" type="text">
+                </div>
+                <br><br>
               </div>
               <br><br>
               <div class="demo">

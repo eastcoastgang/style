@@ -3,6 +3,57 @@ initElements()
 function initElements() {
     addWaves()
     initModal()
+    window.setTimeout(() => {
+        initBottomSheet()
+    }, 200)
+}
+
+function initBottomSheet() {
+
+    $( "[data-bs-toggle]" ).each((index, element) => {
+        $('#' + $(element).attr('data-bs-toggle')).addClass('hidden')
+        $('#' + $(element).attr('data-bs-toggle')).addClass('animated')
+        $('#' + $(element).attr('data-bs-toggle')).addClass('fadeInUp')
+        $('#' + $(element).attr('data-bs-toggle')).addClass('faster')
+        element.addEventListener("click", () => {
+
+            toggleBottomSheet($(element).attr('data-bs-toggle')) 
+
+        });
+    });
+}
+
+function toggleBottomSheet(id) {
+    // Enable sheet
+    if ($(`#${id}`).hasClass('hidden')) {
+        $(`#${id}`).toggleClass('hidden')
+
+        $(`#${id}`).removeClass('fadeOutDown')
+        $(`#${id}`).addClass('fadeInUp')
+
+        $('#bottom_sheet_background').removeClass('fadeOut')
+        $('#bottom_sheet_background').removeClass('hidden')
+        $('#bottom_sheet_background').addClass('fadeIn')
+
+        document.getElementById('bottom_sheet_background').onclick = () => {
+            toggleBottomSheet(id)
+        }
+    }
+    else {
+        // Disable sheet
+
+        $(`#${id}`).addClass('fadeOutDown')
+        $(`#${id}`).removeClass('fadeInUp')
+
+        $('#bottom_sheet_background').removeClass('fadeIn')
+        $('#bottom_sheet_background').addClass('fadeOut')
+
+        window.setTimeout(() => {
+            $(`#${id}`).toggleClass('hidden')
+            $('#bottom_sheet_background').addClass('hidden')
+        }, 500)
+    }
+    
 }
 
 function initModal() {
