@@ -1,0 +1,508 @@
+:root {
+    /* --s-b: rgba(18, 18, 18, 1) !important;
+    --s-1: rgba(255, 255, 255, 0.02) !important;
+    --s-2: #1C1C1C !important;
+    --s-3: #202020 !important;
+    --s-4: #242424 !important;
+    --s-5: #282828 !important;
+    --s-6: #2C2C2C !important;
+    --s-7: #303030 !important;
+    --s-8: #343434 !important;
+
+    --primary: #BB86FC !important;
+    --primary-hover: #c99dff !important;
+    --primary-hover-variant: rgb(201, 157, 255, 0.05) !important;
+    --primary-hover-variant-variant: rgb(201, 157, 255, 0.1) !important;
+    --primary-variant: #18e6d1 !important;
+    --secondary: #03DAC6 !important;
+    --secondary-hover: #18e6d1 !important;
+    --secondary-hover-variant: rgb(24, 230, 209, 0.05) !important;
+    --secondary-hover-variant-variant: rgb(24, 230, 209, 0.1) !important;
+    --secondary-variant: #018786 !important;
+
+    --e-0: rgba(255, 255, 255, 1.0) !important;
+    --e-1: rgba(255, 255, 255, 0.87) !important;
+    --e-2: rgba(255, 255, 255, 0.6) !important;
+    --e-3: rgba(255, 255, 255, 0.38) !important;
+    --e-4: rgba(255, 255, 255, 0.11) !important;
+
+    --c-1: rgba(255, 255, 255, 0.02) !important;
+    --c-2: rgba(255, 255, 255, 0.04) !important;
+    --c-3: rgba(255, 255, 255, 0.06) !important; */
+
+/* 
+    --s-b: rgb(255, 255, 255) !important;
+    --s-1: rgba(255, 255, 255, 1.00) !important;
+    --s-2: rgba(255, 255, 255, 1.00) !important;
+    --s-3: rgba(255, 255, 255, 1.00) !important;
+    --s-4: rgba(255, 255, 255, 1.00) !important;
+    --s-5: rgba(255, 255, 255, 1.00) !important;
+    --s-6: rgba(255, 255, 255, 1.00) !important;
+    --s-7: rgba(255, 255, 255, 1.00) !important;
+    --s-8: rgba(255, 255, 255, 1.00) !important;
+
+    --primary: rgb(98, 0, 238) !important;
+    --primary-hover: #7517fa !important;
+    --primary-hover-variant: rgb(117, 23, 250, 0.05) !important;
+    --primary-hover-variant-variant: rgb(117, 23, 250, 0.1) !important;
+    --primary-variant: #3700B3 !important;
+    --secondary: rgb(3, 218, 198) !important;
+    --secondary-hover: #18e6d1 !important;
+    --secondary-hover-variant: rgb(24, 230, 209, 0.05) !important;
+    --secondary-hover-variant-variant: rgb(24, 230, 209, 0.1) !important;
+    --secondary-variant: #018786 !important; 
+    
+    --e-0: rgba(0, 0, 0, 1.0) !important;
+    --e-1: rgba(0, 0, 0, 0.87) !important;
+    --e-2: rgba(0, 0, 0, 0.60) !important;
+    --e-3: rgba(0, 0, 0, 0.38) !important;
+    --e-4: rgba(0, 0, 0, 0.11) !important;
+
+    --c-1: rgba(0, 0, 0, 0.02) !important;
+    --c-2: rgba(0, 0, 0, 0.04) !important;
+    --c-3: rgba(0, 0, 0, 0.06) !important;  */
+    
+}
+
+body {
+    background-color: var(--s-b);
+    color: var(--e-1);
+    font-family: 'Baloo 2', cursive;
+}
+
+[data-ripplet] {
+    -webkit-tap-highlight-color: transparent; /* 1 */
+    touch-action: manipulation; /* 2 */
+}
+
+.doneicon {
+    background-image: linear-gradient(270deg, rgb(255, 0, 0), rgb(221, 0, 255));
+    padding: 6px;
+    
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-background-clip: text;
+    -moz-text-fill-color: transparent;   
+}
+
+button:focus,button,button:active{
+    outline: none;
+    pointer-events: all !important;
+}
+
+/* General Classes */
+
+.centeredx {
+    position: absolute !important;
+    left: 50% !important;
+    transform: translate(-50%, 0) !important;
+}
+.centeredy {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translate(0,-50%) !important;
+}
+.centered {
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+}
+
+/* Alerts */
+
+.alert-primary {
+    text-align: left;
+    border: 1px solid var(--c-3);
+    border-left: 6px solid var(--primary);
+    border-radius: 8px;
+    margin-bottom: 18px;
+    background-color: var(--c-1);
+    color: var(--e-1)
+}
+
+.alert-secondary {
+    text-align: left;
+    border: 1px solid var(--c-3);
+    border-left: 6px solid var(--secondary);
+    border-radius: 8px;
+    margin-bottom: 18px;
+    background-color: var(--c-1);
+    color: var(--e-1)
+}
+
+.alert-danger {
+    text-align: left;
+    border: 1px solid var(--c-3);
+    border-left: 6px solid var(--danger);
+    border-radius: 8px;
+    margin-bottom: 18px;
+    background-color: var(--c-1);
+    color: var(--e-1)
+}
+
+.alert-info {
+    text-align: left;
+    border: 1px solid var(--c-3);
+    border-left: 6px solid var(--info);
+    border-radius: 8px;
+    margin-bottom: 18px;
+    background-color: var(--c-1);
+    color: var(--e-1)
+}
+
+.alert-success {
+    text-align: left;
+    border: 1px solid var(--c-3);
+    border-left: 6px solid var(--success);
+    border-radius: 8px;
+    margin-bottom: 18px;
+    background-color: var(--c-1);
+    color: var(--e-1)
+}
+
+.alert-warning {
+    text-align: left;
+    border: 1px solid var(--c-3);
+    border-left: 6px solid var(--warning);
+    border-radius: 8px;
+    margin-bottom: 18px;
+    background-color: var(--c-1);
+    color: var(--e-1)
+}
+
+/* Buttons */
+
+.btn-contained {
+    min-width: 64px;
+    height: 36px;
+    padding: 0 16px 0 16px;
+    border-radius: 4px;
+    align-items: center;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12), 0 3px 1px -2px rgba(0,0,0,.2);
+    font-size: 1rem;
+    border: none;
+    font-weight: 500;
+    justify-content: center;
+    letter-spacing: .0892857143em;
+    text-transform: uppercase;
+    transition: all 0.5s;
+    color: white !important;
+}
+
+.btn-contained:focus {
+    color: white;
+}
+
+.btn-contained:hover {
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12), 0 2px 4px -1px rgba(0,0,0,.2);
+    transition: all 0.3s
+}
+
+.btn-contained:active {
+    color: white;
+    box-shadow: 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12), 0 5px 5px -3px rgba(0,0,0,.2);
+}
+
+.btn-contained.btn-primary {
+    background-color: var(--primary);
+    transition: all 0.2s;
+}
+
+.btn-contained.btn-primary:hover {
+    background-color: var(--primary-hover);
+    transition: all 0.2s;
+}
+
+.btn-contained.btn-secondary {
+    background-color: var(--secondary);
+    transition: all 0.2s;
+}
+
+.btn-contained.btn-secondary:hover {
+    background-color: var(--secondary-hover);
+    transition: all 0.2s;
+}
+
+.btn-contained.btn-danger {
+    background-color: var(--danger);
+    transition: all 0.2s;
+}
+
+.btn-contained.btn-danger:hover {
+    background-color: #ff575a;
+    transition: all 0.2s;
+}
+
+.btn-contained.btn-info {
+    background-color: var(--info);
+    transition: all 0.2s;
+}
+
+.btn-contained.btn-info:hover {
+    background-color: #34a1fa;
+    transition: all 0.2s;
+}
+
+.btn-contained.btn-success {
+    background-color: var(--success);
+    transition: all 0.2s;
+}
+
+.btn-contained.btn-success:hover {
+    background-color: #63c566;
+    transition: all 0.2s;
+}
+
+.btn-contained.btn-warning {
+    background-color: var(--warning);
+    transition: all 0.2s;
+}
+
+.btn-contained.btn-warning:hover {
+    background-color: #ffa319;
+    transition: all 0.2s;
+}
+
+.btn-outlined {
+    min-width: 64px;
+    height: 36px;
+    padding: 0 16px 0 16px;
+    border-radius: 4px;
+    align-items: center;
+    font-size: 1rem;
+    border: none;
+    font-weight: 500;
+    justify-content: center;
+    letter-spacing: .0892857143em;
+    text-transform: uppercase;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+.btn-outlined.btn-primary {
+    background-color: rgba(0, 0, 0, 0.0);
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    transition: all 0.2s;
+}
+
+.btn-outlined.btn-primary:hover {
+    background-color: var(--primary-hover-variant);
+    transition: all 0.2s;
+}
+
+.btn-outlined.btn-secondary {
+    background-color: rgba(0, 0, 0, 0.0);
+    border: 1px solid var(--secondary);
+    color: var(--secondary);
+    transition: all 0.2s;
+}
+
+.btn-outlined.btn-secondary:hover {
+    background-color: var(--secondary-hover-variant);
+    transition: all 0.2s;
+}
+
+.btn-outlined.btn-danger {
+    background-color: rgba(0, 0, 0, 0.0);
+    border: 1px solid var(--danger);
+    color: var(--danger);
+    transition: all 0.2s;
+}
+
+.btn-outlined.btn-danger:hover {
+    background-color: rgb(255, 87, 90, 0.05);
+    transition: all 0.2s;
+}
+
+.btn-outlined.btn-info {
+    background-color: rgba(0, 0, 0, 0.0);
+    border: 1px solid var(--info);
+    color: var(--info);
+    transition: all 0.2s;
+}
+
+.btn-outlined.btn-info:hover {
+    background-color: rgb(52, 161, 250, 0.05);
+    transition: all 0.2s;
+}
+
+.btn-outlined.btn-success {
+    background-color: rgba(0, 0, 0, 0.0);
+    border: 1px solid var(--success);
+    color: var(--success);
+    transition: all 0.2s;
+}
+
+.btn-outlined.btn-success:hover {
+    background-color: rgb(99, 197, 102, 0.05);
+    transition: all 0.2s;
+}
+
+.btn-outlined.btn-warning {
+    background-color: rgba(0, 0, 0, 0.0);
+    border: 1px solid var(--warning);
+    color: var(--warning);
+    transition: all 0.2s;
+}
+
+.btn-outlined.btn-warning:hover {
+    background-color: rgb(255, 163, 25, 0.05);
+    transition: all 0.2s;
+}
+
+.btn-text {
+    min-width: 64px;
+    height: 36px;
+    padding: 0 16px 0 16px;
+    border-radius: 4px;
+    align-items: center;
+    font-size: 1rem;
+    border: none;
+    font-weight: 500;
+    justify-content: center;
+    letter-spacing: .0892857143em;
+    text-transform: uppercase;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+.btn-text.btn-primary {
+    background-color: rgba(0, 0, 0, 0.0);
+    color: var(--primary);
+    transition: all 0.2s;
+}
+
+.btn-text.btn-primary:hover {
+    background-color: var(--primary-hover-variant-variant);
+    transition: all 0.2s;
+}
+
+.btn-text.btn-secondary {
+    background-color: rgba(0, 0, 0, 0.0);
+    color: var(--secondary);
+    transition: all 0.2s;
+}
+
+.btn-text.btn-secondary:hover {
+    background-color: var(--secondary-hover-variant-variant);
+    transition: all 0.2s;
+}
+
+.btn-text.btn-danger {
+    background-color: rgba(0, 0, 0, 0.0);
+    color: var(--danger);
+    transition: all 0.2s;
+}
+
+.btn-text.btn-danger:hover {
+    background-color: rgb(255, 87, 90, 0.1);
+    transition: all 0.2s;
+}
+
+.btn-text.btn-info {
+    background-color: rgba(0, 0, 0, 0.0);
+    color: var(--info);
+    transition: all 0.2s;
+}
+
+.btn-text.btn-info:hover {
+    background-color: rgb(52, 161, 250, 0.1);
+    transition: all 0.2s;
+}
+
+.btn-text.btn-success {
+    background-color: rgba(0, 0, 0, 0.0);
+    color: var(--success);
+    transition: all 0.2s;
+}
+
+.btn-text.btn-success:hover {
+    background-color: rgb(99, 197, 102, 0.1);
+    transition: all 0.2s;
+}
+
+.btn-text.btn-warning {
+    background-color: rgba(0, 0, 0, 0.0);
+    color: var(--warning);
+    transition: all 0.2s;
+}
+
+.btn-text.btn-warning:hover {
+    background-color: rgb(255, 163, 25, 0.1);
+    transition: all 0.2s;
+}
+
+/* Cards */
+
+.card {
+    display: inline-block;
+    background-color: var(--s-1);
+    border-radius: 12px;
+}
+
+/* Menu / Dropdown */
+
+.dropdown-item {
+    padding: 8px 16px 8px 16px;
+    color: var(--e-0);
+    cursor: pointer;
+}
+
+.block {
+    width: 100%;
+}
+
+.dropdown-item:hover {
+    background-color: var(--e-4);
+    color: var(--e-0)
+}
+
+.dropdown-item:first-child {
+    margin-top: 12px;
+}
+
+.dropdown-item:last-child {
+    margin-bottom: 12px;
+}
+
+.dropdown-menu::before {
+    border-radius: 8px;
+    min-width: 24px;
+    background-color: var(--s-3)
+}
+
+/* Modals */
+
+.modalheader {
+    padding: 24px 24px 4px 24px;
+}
+
+.modalbody {
+    padding: 0px 24px 24px 24px;
+}
+
+.modal-content {
+    background-color: var(--s-2);
+    border-radius: 12px;
+}
+
+/* Typography */
+
+p {
+    font-size: 18px !important;
+}
+
+.bold {
+    font-weight: 600;
+}
+
+.regular {
+    font-weight: 500;
+}
+
+.light {
+    font-weight: 400;
+}
+
