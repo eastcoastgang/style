@@ -449,10 +449,31 @@ button:focus,button,button:active{
 
 /* Menu / Dropdown */
 
+.dropdown-menu {
+    opacity: 0;
+    display: block !important;
+    visibility: hidden;
+
+    transition: visibility 0.15s, opacity 0.15s linear;
+}
+
+.dropdown-menu.show {
+    opacity: 1;
+    display: block !important;
+    visibility: visible;
+
+    transition: visibility 0.15s, opacity 0.15s linear;
+}
+
 .dropdown-item {
     padding: 12px 16px 12px 16px;
     color: var(--e-0);
     cursor: pointer;
+    display: block;
+}
+
+.dropdown-menu.show:before, .dropdown-menu.show>* {
+    animation-duration: 0.5s;
 }
 
 .block {
@@ -573,3 +594,109 @@ p {
     height: 100%; width: 100%;
     cursor: pointer;
 }
+
+/* Select Menus */
+.waves-effect .waves-ripple {
+    background: var(--e-3);
+}
+
+.east-select {
+    box-sizing: border-box;
+    position: relative;
+    display: inline-block;
+    width: 300px;
+    text-align: left;
+    font: 16px arial, sans-serif
+  }
+
+.east-select-ico {
+    position: absolute;
+    top: 50%;
+    right: 8px;
+    margin-top: -3px;
+    border-width: 6px;
+    border-style: solid;
+    border-color: #c1e4fe transparent transparent;
+}
+
+.east-select-value {
+    padding: 12px 10px;
+    cursor: pointer;
+    z-index: 4;
+    border: 1px solid #c1e4fe;
+    border-radius: 6px;
+    display: block;
+}
+
+.east-select-active .east-select-value {
+    z-index: 1;
+}
+
+.east-select-options {
+    position: absolute;
+    top: 0;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    left: 0px;
+    width: 100% ;
+    visibility: hidden;
+    z-index: 3;
+    opacity: 0;
+    transform: scale(.9,.9);
+    background-color: var(--s-4);
+    box-shadow: 0 0 16px 0 rgba(0,0,0,.14);
+    border-radius: 8px;
+    overflow:hidden;
+}
+
+.east-select-animating .east-select-options {
+    visibility: visible;
+}
+
+.east-select-active .east-select-options { 
+    transform: scale(1,1);
+    opacity: 1;
+}
+   
+.east-select-list {
+    position: relative;
+    width: 100%;
+    max-height: 266px;
+    overflow: auto;
+}
+  
+.east-select-item {
+    padding: 12px 11px;
+    cursor: pointer;
+    display: block;
+    transition: all 0.1s;
+}
+
+.east-select-item:hover{
+    background-color: var(--c-2);
+    transition: all 0.1s;
+}
+
+.east-select-item:active{
+    background-color: var(--c-3);
+    color: var(--primary);
+    transition: background 0.2s ease;
+}
+  
+.east-select-item.east-select-selected{
+    background-color: var(--c-3);
+    color: var(--primary);
+}
+  
+  .east-select-overflow {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    display: none;
+  }
+  
+  .east-select-active .east-select-overflow{
+    display: block;
+  }

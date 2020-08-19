@@ -5,6 +5,7 @@ function initElements() {
     initModal()
     window.setTimeout(() => {
         initBottomSheet()
+        initSelect()
     }, 200)
 }
 
@@ -73,6 +74,16 @@ function addWaves() {
     initButtonsOutlined()
 
     initButtonsText()
+
+    initButtonsDropdown()
+
+    Waves.init();
+}
+
+function initButtonsDropdown() {
+    $('.dr-item').addClass('dropdown-item');
+    Waves.attach('.dr-item');
+    $('.dr-item').removeClass('dr-item');
 }
 
 function initButtonsText() {
@@ -284,3 +295,108 @@ function error(text) {
     $('#erorrModalMsg').html(text)
     $('#errorModal').modal('toggle')
 }
+
+// Select
+
+function initSelect() {
+
+    $('.east-sel-item').addClass('east-select-item');
+    $('.east-sel-item').addClass('waves-effect');
+    Waves.attach('.sel-item');
+    $('.east-sel-item').removeClass('east-sel-item');
+
+    $(`.east-select`).each((i, obj) => {
+        $(obj).children().eq(1).addClass('waves-effect')
+        
+        lmSelect(obj, (data) => {
+            //
+        })
+    })
+}
+
+  function lmSelect(select, onChange) {
+    var selectValue = select.querySelector('.east-select-value');
+    var options = select.querySelector('.east-select-options');
+    var list = select.querySelector('.east-select-list');
+    var items = select.querySelectorAll('.east-select-item');
+    var overflow = select.querySelector('.east-select-overflow');
+    var bodyScroll;
+    
+    function selectItem(selected, isUpdate) {
+      var value = selected.getAttribute('data-value') || selected.textContent;
+      selected.classList.add('east-select-selected');
+      selectValue.textContent = selected.textContent;
+      selectValue.setAttribute('data-value', value);
+      if (onChange && isUpdate) {
+        onChange(getData());
+      }
+    }
+    
+    function getData() {
+      return {text: selectValue.textContent, value: selectValue.getAttribute('data-value')};
+    }
+    
+    function hideSelect() {
+      select.classList.remove("east-select-active");
+      removeDScroll ();
+      setTimeout(function() {
+           select.classList.remove("east-select-animating");
+        }, 400);
+    }
+    
+    function handleChange(event) {
+      var old = select.querySelector('.east-select-selected');
+      if (old) {
+        old.classList.remove('east-select-selected');
+      }
+      
+      selectItem(event.target, true);
+      hideSelect();
+    }
+    
+    function handleOpen() {
+      setDScroll();
+      var selected = select.querySelector('.east-select-selected');
+      select.classList.add("east-select-animating");
+      var scrollTop = (selected.offsetTop + (selected.offsetHeight/2)) - list.offsetHeight/2;
+      list.scrollTop = Math.max(0, scrollTop);
+      var listTop = Math.min(select.offsetTop - 10, selected.offsetTop - list.scrollTop) *-1
+      options.style.top = listTop + "px";
+      
+      setTimeout(function() {
+        select.classList.add("east-select-active");
+      }, 10);
+    }
+    
+    function setDScroll() {
+      bodyScroll = document.body.scrollTop;
+      if (document.documentElement.clientHeight < document.documentElement.offsetHeight) {
+        document.documentElement.style.overflowY = "scroll";
+      }
+      document.body.style.position = "fixed";
+      document.body.style.width = "100%";
+      document.body.style.top = bodyScroll *-1 + "px";
+    }
+    function removeDScroll() {
+      document.body.style.position = "";
+      document.body.style.width = "";
+      document.body.style.top = "";
+      document.body.scrollTop = bodyScroll;
+      document.documentElement.style.overflowY = "";
+    }
+    
+    selectItem(select.querySelector('.east-select-selected') ||
+        select.querySelector('.east-select-item'));
+    
+    selectValue.addEventListener('click', handleOpen);
+    
+    for (var i = 0, l = items.length; i < l; i++) {
+      items[i].addEventListener('click', handleChange);
+    }
+   
+    overflow.addEventListener('click', hideSelect);
+    
+    return {
+      get: getData
+    }
+  }
