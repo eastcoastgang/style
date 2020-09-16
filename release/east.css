@@ -700,3 +700,7 @@ p {
   .east-select-active .east-select-overflow{
     display: block;
   }
+
+.snacc-btn {
+    color: var(--primary) !important;
+}
