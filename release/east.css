@@ -571,7 +571,6 @@ p {
 .bottom_sheet {
     position: fixed;
     left: 0px;
-    max-height: 200px;
     bottom: 0px;
     width: 100%;
     text-align: center;
